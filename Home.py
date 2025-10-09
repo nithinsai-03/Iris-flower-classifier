@@ -1,48 +1,60 @@
 import streamlit as st
 
+# Set the title and icon for the app
 st.set_page_config(
     page_title="IRIS CLASSIFICATION WEB APP",
     page_icon="🌸",
     layout="wide"
 )
 
-st.title("🌸 IRIS Classification Project")
+# --- HOME PAGE CONTENT ---
+st.title("🌸 IRIS Classification Project: An Introduction")
 st.subheader("Welcome to the Interactive Data Analysis and Classification App!")
 
 st.markdown("""
-This web application is built using **Streamlit** to explore the famous Iris dataset
-and provide a machine learning model for flower classification.
+This web application is built using **Streamlit** to explore the famous **Iris dataset** and provide a machine learning model for flower classification.
 
-Use the sidebar on the left to navigate:
-- **Basic EDA:** Explore the dataset through visual graphs and statistics.
-- **Classification:** Predict the species of an Iris flower based on its measurements.
+The Iris dataset is a classic and widely used dataset in machine learning 
+and statistics. It contains 150 samples of Iris flowers, with 50 samples from each of 
+three species: **Iris Setosa**, **Iris Versicolor**, and **Iris Virginica**.
+
+The data records four features (measurements in centimeters) for each flower:
+- **Sepal Length**
+- **Sepal Width**
+- **Petal Length**
+- **Petal Width**
 """)
 
-st.header("1. The Iris Dataset Overview")
-    
-st.subheader("Dataset Details")
+st.header("The Three Species")
+st.markdown("Each species has distinct physical characteristics, which allows the machine learning models to classify them based on their measurements.")
+
+# --- Image Grid for Species Comparison ---
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.image("https://upload.wikimedia.org/wikipedia/commons/5/56/Iris_setosa_2.JPG", caption="Iris Setosa", use_column_width=True)
+    st.markdown("**Iris Setosa:** Characterized by shorter and wider petals and sepals. Generally the easiest species to separate from the other two.")
+
+with col2:
+    st.image("https://upload.wikimedia.org/wikipedia/commons/4/41/Iris_versicolor_3.jpg", caption="Iris Versicolor", use_column_width=True)
+    st.markdown("**Iris Versicolor:** Has intermediate measurements. Its petal and sepal dimensions often fall between those of Setosa and Virginica.")
+
+with col3:
+    st.image("https://upload.wikimedia.org/wikipedia/commons/9/9f/Iris_virginica.jpg", caption="Iris Virginica", use_column_width=True)
+    st.markdown("**Iris Virginica:** Typically has the longest and widest petals and sepals among the three species.")
+
 st.markdown("""
-    The Iris dataset is a classic multivariate data set introduced by R.A. Fisher in 1936.
-    It consists of 150 samples from three species of Iris flowers, with 50 samples from each species.
-        
-    The goal is to classify the species based on four morphological measurements.
-""")
-    
-st.subheader("Anatomy of the Iris Flower ")
-st.markdown("""
-    The classification is based on four key measurements, all measured in centimeters:
+***
+### Navigation Guide
 
-    * **Sepal Length/Width:** The sepal is the outer part of the flower (often green) that encloses the petals in the bud stage.
-    * **Petal Length/Width:** The petal is the colorful part of the flower that attracts pollinators.
+Use the sidebar on the left to navigate the application:
+- **Basic EDA:** Dive into the data! Explore the dataset through visual graphs (like histograms and heatmaps) and descriptive statistics.
+- **Classification:** Test our machine learning models! Input your own flower measurements and see the predicted species using models like Random Forest, KNN, and SVM.
 """)
-    
-st.subheader("The Three Target Species")
-    
-st.markdown("""
-    The dataset contains equal samples (50 each) of the following three species:
 
-    1.  **Iris setosa:** This species is typically the easiest to identify as it has significantly shorter petals and sepals, making it linearly separable from the others.
-    2.  **Iris versicolor:** This species falls between the other two in terms of feature measurements.
-    3.  **Iris virginica:** This species generally has the longest petals and sepals and is often the most difficult to distinguish from *Iris versicolor* based solely on simple linear separation.
-""")
- 
+# Optional: Display the logo if you have it
+try:
+    st.image('logo.jpg', width=100)
+except FileNotFoundError:
+    # If the user added a logo.jpg, it will show up here.
+    pass
