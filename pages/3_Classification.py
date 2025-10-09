@@ -10,8 +10,6 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 
-
-"""Model Comparison: Train two models and display metrics."""
 st.title("⚖️ Model Comparison and Evaluation")
 st.markdown("We will compare two common classification algorithms: **K-Nearest Neighbors (KNN)** and **Support Vector Machine (SVM)**. **Note:** Since KNN and SVM are sensitive to feature scales, we use a `StandardScaler` within a `Pipeline` for best practice.")
 
