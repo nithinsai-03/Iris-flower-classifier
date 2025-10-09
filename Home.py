@@ -32,7 +32,7 @@ st.markdown("Each species has distinct physical characteristics, which allows th
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/5/56/Iris_setosa_2.JPG", caption="Iris Setosa", use_container_width=True)
+    st.image("https://upload.wikimedia.org/wikipedia/commons/a/a8/Iris_setosa_cultivar_3.JPG", caption="Iris Setosa", use_container_width=True)
     st.markdown("**Iris Setosa:** Characterized by shorter and wider petals and sepals. Generally the easiest species to separate from the other two.")
 
 with col2:
