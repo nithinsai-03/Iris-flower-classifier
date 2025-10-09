@@ -4,12 +4,32 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.datasets import load_iris
+import duckdb
 
 # --- Page Configuration ---
 st.set_page_config(
     page_title="Basic EDA",
     page_icon="📊",
 )
+st.title("SQL operation on IRIS Dataset" )
+
+iris = load_iris(as_frame=True)
+df = iris.frame
+
+df['species'] = df['target'].apply(lambda x: iris.target_names[x])
+
+con = duckdb.connect(database=':memory:')
+con.register('iris_df', df)
+
+a=con.execute("CREATE TABLE iris AS SELECT * FROM iris_df")
+
+query = st.text_area("Enter your SQL query here:", "SELECT * FROM iris LIMIT 5")
+
+result = con.execute(query).fetchdf()
+st.write("Query Result:")
+st.dataframe(result)
+
+
 
 st.title("📊 Basic Exploratory Data Analysis (EDA)")
 
