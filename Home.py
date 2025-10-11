@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- HOME PAGE CONTENT ---
+# Home page content
 st.title("🌸 IRIS Classification Project: An Introduction")
 st.subheader("Welcome to the Interactive Data Analysis and Classification App!")
 
@@ -41,16 +41,27 @@ st.markdown("""
     * **Sepal Length/Width:** The sepal is the outer part of the flower (often green) that encloses the petals in the bud stage.
     * **Petal Length/Width:** The petal is the colorful part of the flower that attracts pollinators.
 """)
-    
-st.subheader("The Three Target Species")
-    
-st.markdown("""
-    The dataset contains equal samples (50 each) of the following three species:
 
-    1.  **Iris setosa:** This species is typically the easiest to identify as it has significantly shorter petals and sepals, making it linearly separable from the others.
-    2.  **Iris versicolor:** This species falls between the other two in terms of feature measurements.
-    3.  **Iris virginica:** This species generally has the longest petals and sepals and is often the most difficult to distinguish from *Iris versicolor* based solely on simple linear separation.
-""")
+st.subheader("The Three Species")
+st.markdown("Each species has distinct physical characteristics, which allows the machine learning models to classify them based on their measurements.")
+
+# Image Grid for Species Comparison 
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.image("iris_setosa.webp", caption="Iris Setosa", width='stretch')
+    st.markdown("**Iris Setosa:** Characterized by shorter and wider petals and sepals. Generally the easiest species to separate from the other two.")
+
+with col2:
+    st.image("iris_versicolor.jpeg", caption="Iris Versicolor", width='stretch')
+    st.markdown("**Iris Versicolor:** Has intermediate measurements. Its petal and sepal dimensions often fall between those of Setosa and Virginica.")
+
+with col3:
+    st.image("iris_virginica.jpeg", caption="Iris Virginica", width='stretch')
+    st.markdown("**Iris Virginica:** Typically has the longest and widest petals and sepals among the three species.")
+
+    
+
     
 st.subheader("DuckDB Data Sample")
 st.markdown("We're using DuckDB to query the dataset loaded in-memory.")
@@ -100,27 +111,8 @@ try:
 except Exception as e:
     st.error(f"Error executing DuckDB query: {e}")
 
-st.header("The Three Species")
-st.markdown("Each species has distinct physical characteristics, which allows the machine learning models to classify them based on their measurements.")
 
-# --- Image Grid for Species Comparison ---
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.image("iris_setosa.webp", caption="Iris Setosa", width='stretch')
-    st.markdown("**Iris Setosa:** Characterized by shorter and wider petals and sepals. Generally the easiest species to separate from the other two.")
-
-with col2:
-    st.image("iris_versicolor.jpeg", caption="Iris Versicolor", width='stretch')
-    st.markdown("**Iris Versicolor:** Has intermediate measurements. Its petal and sepal dimensions often fall between those of Setosa and Virginica.")
-
-with col3:
-    st.image("iris_virginica.jpeg", caption="Iris Virginica", width='stretch')
-    st.markdown("**Iris Virginica:** Typically has the longest and widest petals and sepals among the three species.")
-
-
-
-# --- Navigation Footer ---
+# Navigation Footer 
 st.markdown("---")
 st.subheader("Ready to Explore?")
 st.markdown("Proceed to the **Basic EDA** page in the sidebar to visualize the data!")
