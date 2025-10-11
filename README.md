@@ -17,17 +17,24 @@ This project is ideal for anyone looking to learn **Python-based data analysis**
 
 ## 📂 Project Structure
 
+
+
+# Project Structure
+
+```
 Iris-IDEAS-TIH/
 ├── pages/
-│ ├── pages/
-│ │ ├── 2_Basic_EDA.py
-│ │ ├── 3_Classification.py
-│ │ └── 3_Classification.py
+│   ├── 2_Basic_EDA.py
+│   ├── 3_Classification.py
 ├── Home.py
 ├── iris_setosa.webp
 ├── iris_versicolor.jpeg
 ├── iris_virginica.jpeg
 └── README.md
+```
+
+
+
 
 ---
 
