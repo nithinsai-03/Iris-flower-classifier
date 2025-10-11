@@ -11,26 +11,6 @@ st.set_page_config(
     page_title="Basic EDA",
     page_icon="📊",
 )
-st.title("SQL operation on IRIS Dataset" )
-
-iris = load_iris(as_frame=True)
-df = iris.frame
-
-
-con = duckdb.connect(database=':memory:')
-con.register('iris_df', df)
-
-a=con.execute("CREATE TABLE iris AS SELECT * FROM iris_df")
-
-query = st.text_area("Enter your SQL query here:", "SELECT * FROM iris LIMIT 5")
-
-if st.button('Run Query'):
-    try:
-        result = con.execute(query).fetchdf()
-        st.write("Query Result:")
-        st.dataframe(result)
-    except Exception as e:
-        st.error(f"Error: {e}")
 
 
 st.title("📊 Basic Exploratory Data Analysis (EDA)")
@@ -78,6 +58,14 @@ con.register('iris_df', df)
 a=con.execute("CREATE TABLE iris AS SELECT * FROM iris_df")
 
 query = st.text_area("Enter your SQL query here:", "SELECT * FROM iris LIMIT 5")
+
+if st.button('Run Query'):
+    try:
+        result = con.execute(query).fetchdf()
+        st.write("Query Result:")
+        st.dataframe(result)
+    except Exception as e:
+        st.error(f"Error: {str(e)}")
 
 result = con.execute(query).fetchdf()
 st.write("Query Result:")
