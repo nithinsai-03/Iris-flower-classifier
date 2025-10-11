@@ -56,7 +56,7 @@ iris_df = load_data()
 
 # 2. Display Data Snapshot
 st.header("1. Dataset Snapshot")
-st.dataframe(iris_df.head())
+st.dataframe(iris_df.sample(8))
 st.write(f"Dataset Shape: {iris_df.shape[0]} rows, {iris_df.shape[1]} columns")
 
 
