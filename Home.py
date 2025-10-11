@@ -79,7 +79,12 @@ df_iris = load_data_df()
 db_conn = get_duckdb_conn()
 
 # Demonstrating a DuckDB query
-query = "SELECT sepal_length, sepal_width, petal_length, petal_width, species_name FROM iris_table LIMIT 10"
+query = """
+SELECT sepal_length, sepal_width, petal_length, petal_width, species_name
+FROM iris_table
+ORDER BY RANDOM()
+LIMIT 10
+"""
 
 # Register the DataFrame with the DuckDB connection
 try:
@@ -102,16 +107,20 @@ st.markdown("Each species has distinct physical characteristics, which allows th
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.image("iris_setosa.webp", caption="Iris Setosa", use_container_width=True)
+    st.image("iris_setosa.webp", caption="Iris Setosa", width='stretch')
     st.markdown("**Iris Setosa:** Characterized by shorter and wider petals and sepals. Generally the easiest species to separate from the other two.")
 
 with col2:
-    st.image("iris_versicolor.jpeg", caption="Iris Versicolor", use_container_width=True)
+    st.image("iris_versicolor.jpeg", caption="Iris Versicolor", width='stretch')
     st.markdown("**Iris Versicolor:** Has intermediate measurements. Its petal and sepal dimensions often fall between those of Setosa and Virginica.")
 
 with col3:
-    st.image("iris_virginica.jpeg", caption="Iris Virginica", use_container_width=True)
+    st.image("iris_virginica.jpeg", caption="Iris Virginica", width='stretch')
     st.markdown("**Iris Virginica:** Typically has the longest and widest petals and sepals among the three species.")
 
 
 
+# --- Navigation Footer ---
+st.markdown("---")
+st.subheader("Ready to Explore?")
+st.markdown("Proceed to the **Basic EDA** page in the sidebar to visualize the data!")
