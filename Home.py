@@ -5,12 +5,11 @@ import duckdb
 # Set the title and icon for the app
 st.set_page_config(
     page_title="IRIS CLASSIFICATION WEB APP",
-    page_icon="🌸",
     layout="wide"
 )
 
 # Home page content
-st.title("🌸 IRIS Classification Project: An Introduction")
+st.title("IRIS Classification Project: An Introduction")
 st.subheader("Welcome to the Interactive Data Analysis and Classification App!")
 
 st.markdown("""

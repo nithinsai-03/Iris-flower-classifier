@@ -6,36 +6,15 @@ import seaborn as sns
 from sklearn.datasets import load_iris
 import duckdb
 
-# --- Page Configuration ---
+# Page Configuration 
 st.set_page_config(
     page_title="Basic EDA",
-    page_icon="📊",
 )
 
 
-st.title("📊 Basic Exploratory Data Analysis (EDA)")
-
-# # 1. Load the Data
-# # Using scikit-learn's built-in iris dataset for clean loading
-# @st.cache_data
-# def load_data():
-#     """Loads the Iris dataset and returns a Pandas DataFrame."""
-#     iris = load_iris(as_frame=True)
-#     df = iris.frame
-#     # Rename target column for better readability
-#     df.rename(columns={'target': 'species_id'}, inplace=True)
-#     # Map species ID to species name for EDA
-#     df['species'] = df['species_id'].map({
-#         0: 'Setosa',
-#         1: 'Versicolor',
-#         2: 'Virginica'
-#     })
-#     return df
-
-# iris_df = load_data()
+st.title("Basic Exploratory Data Analysis (EDA)")
 
 # 1. Load the Data
-
 @st.cache_data
 def load_data():
     """Loads the Iris dataset and returns a Pandas DataFrame with cleaned columns."""
@@ -137,11 +116,9 @@ dims = selected_feats if len(selected_feats) >= 2 else list(iris_df.columns[:4])
 fig_scatter = px.scatter_matrix(
     iris_df,
     dimensions=dims,
-    # Ensure 'species' is the correct column name created in your load_data function
     color="species",
     title="Interactive Pairwise Relationships",
     opacity=0.8,
-    # Set height/width for non-container use, though Streamlit will override width='stretch' or use_container_width
     width=1200,  
     height=900
 )
@@ -152,5 +129,5 @@ fig_scatter.update_layout(
     margin=dict(l=40, r=20, t=60, b=40)
 ) 
 
-# Ensure use_container_width is set to True to expand it across the page
-st.plotly_chart(fig_scatter, use_container_width=True)
+
+st.plotly_chart(fig_scatter, use_container_width=True) #To expand it across the page
