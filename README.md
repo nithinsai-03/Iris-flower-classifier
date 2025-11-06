@@ -19,18 +19,18 @@ This project is ideal for anyone looking to learn **Python-based data analysis**
 
 
 
-```
 Iris-IDEAS-TIH/
 ├── pages/
 │   ├── 2_Basic_EDA.py
 │   ├── 3_Classification.py
+│   ├── 4_SQL.py 
 ├── Home.py
 ├── iris_setosa.webp
 ├── iris_versicolor.jpeg
 ├── iris_virginica.jpeg
-└── README.md
-|__ requirements.txt
-```
+├── README.md
+└── requirements.txt
+
 
 ---
 
